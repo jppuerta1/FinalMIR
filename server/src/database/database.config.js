@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose
-  .connect('mongodb://localhost:27017', {
+  .connect('mongodb+srv://final_project:1234@mircourse.ooyii.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     dbName: 'projects',
     useNewUrlParser: true,
     useUnifiedTopology: true,
