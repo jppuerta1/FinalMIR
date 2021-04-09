@@ -1,10 +1,11 @@
 import './App.css';
-import { SignupContainer } from './components/SignupContainer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { AppRouter } from './components/routes/AppRouter';
 
 function App() {
   return (
     <div className="App">
-      <SignupContainer />
+      <AppRouter/>
     </div>
   );
 }

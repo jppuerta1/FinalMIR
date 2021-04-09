@@ -13,7 +13,7 @@ export const SignupContainer = () => {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const submitForm = async () => {
 		console.log(formValues);
-		axios.post('http://localhost:3000/signup',
+		axios.post('http://localhost:3001/signup',
 			{
 				email: formValues.email,
 				password: formValues.password
