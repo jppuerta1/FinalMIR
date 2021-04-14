@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { SignUpView } from '../signup/SignUpView'
 import axios from 'axios'
 import { ProjectContainer } from '../../projects/CreateProjectContainer';
+import { LoginView } from './LoginView';
 
 export const LoginContainer = () => {
     const intialValues = { email: "", password: "" };
@@ -32,7 +33,7 @@ export const LoginContainer = () => {
     }
     return (
         <>
-        <SignUpView
+        <LoginView
         email={formValues.email} 
         password = {formValues.password}
         handleOnChange={handleOnChange}

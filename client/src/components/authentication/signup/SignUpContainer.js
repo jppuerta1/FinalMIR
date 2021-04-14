@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { SignUpView } from './SignUpView';
 import axios from 'axios'
+import { Validation } from '../../Utils/Validation';
 
 export const SignUpContainer = () => {
-    const intialValues = { email: "", password: "" };
+    const intialValues = { email: "", password: "", password2: "" };
     const [formValues, setFormValues] = useState(intialValues);
+    const [errors, setErrors] = useState( { } )
    
 
     const submitForm =()=>{
@@ -16,7 +18,7 @@ export const SignUpContainer = () => {
         })
         .then((response) => {
             console.log(response.data.token)
-            localStorage.setItem('token',response.data.token)
+            localStorage.setItem('token', response.data.token)
         })
     }
     
@@ -24,18 +26,29 @@ export const SignUpContainer = () => {
         const {name, value} = e.target
         setFormValues({...formValues,[name]: value})
     }
-
+    
+    
     const handleOnSubmit = (e) => {
         e.preventDefault()
-        submitForm()
-
+        setErrors(Validation(formValues))
+        if (Object.keys(errors).length === 0) {
+            console.log(errors)
+            submitForm()
+        }
     }
+    useEffect(() => {
+
+    }, [])
+    if (!errors) return <h1>Loading</h1>
+    
     return (
         <SignUpView
         email={formValues.email} 
         password = {formValues.password}
+        password2= {formValues.password2}
         handleOnChange={handleOnChange}
         handleOnSubmit={handleOnSubmit}
+        errors = {errors}
         />
     )
-}
+    }

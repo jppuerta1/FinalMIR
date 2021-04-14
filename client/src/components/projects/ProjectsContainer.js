@@ -19,7 +19,7 @@ export const ProjectsContainer = () => {
       })
     },[] )
 
-    
+    if (!projects) return <h1>Loading</h1>
    
     return (
     <div className='container'>
